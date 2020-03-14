@@ -14,15 +14,15 @@ public class Program {
 		
 		Scanner in = new Scanner(System.in);
 		
-		Integer a = in.nextInt();
+		//Integer a = in.nextInt();
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();		
 		
 		System.out.println("=== TEST 1: seller findById ====");
-		Seller seller = sellerDao.findById(a);
+		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		
-		Department dep = new Department(a, null);
+		Department dep = new Department(2, null);
 		List<Seller> list = sellerDao.findByDepartmet(dep);
 		
 		
@@ -30,7 +30,12 @@ public class Program {
 		for(Seller s : list) {
 			System.out.println(s);
 		}
-
+		
+		System.out.println("=== TEST 3: seller findByAll ====");
+		list = sellerDao.findAll();
+		for(Seller s : list) {
+			System.out.println(s);
+		}
 	}
 
 }
